@@ -8,3 +8,10 @@
 
   padding: 10px;
 }
+
+.selectionRow{
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
