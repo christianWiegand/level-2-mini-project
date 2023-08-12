@@ -1,11 +1,11 @@
 <div class="outerDIV">
-  <div class="mainHeading"><h1>Quiz Maker</h1></div>
+  <div class="horizontalCenter"><h1>Quiz Maker</h1></div>
   <div class="selectionRow">
 
     <mat-form-field id="categorySelect">
       <mat-label>Select a category</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let category of categories" [value]="category.name">
+      <mat-select [(ngModel)]="selectedCategoryId">
+        <mat-option *ngFor="let category of categories" [value]="category.id">
           {{category.name}}
         </mat-option>
       </mat-select>
@@ -13,21 +13,49 @@
 
     <mat-form-field id="difficultySelect">
       <mat-label>Select difficulty</mat-label>
-      <mat-select>
-        <mat-option value="Easy">
+      <mat-select [(ngModel)]="selectedDifficulty">
+        <mat-option value="easy">
           Easy
         </mat-option>
-        <mat-option value="Medium">
+        <mat-option value="medium">
           Medium
         </mat-option>
-        <mat-option value="Hard">
+        <mat-option value="hard">
           Hard
         </mat-option>
       </mat-select>
     </mat-form-field>
 
-    <a mat-raised-button color="primary" id="createBtn">Create</a>
+    <a mat-raised-button color="primary" id="createBtn" (click)="createQuestions()">
+      Create
+    </a>
+
+  </div> <!-- End of selection row -->
+
+  <div class="paddingBottom">
+    <div class="paddingBottom" *ngFor="let question of questions">
+
+      <div class="questionText">
+        <h2>{{question.question}}</h2>
+      </div>
+
+      <div class="answers">
+
+        <button class="answerButton" *ngFor="let answer of question.allAnswers"
+          #answerButton (click)="selectAnswer(question, answerButton, answer)">
+          {{answer}}
+        </button>
+
+      </div>
+    </div>
 
   </div>
+
+  <div class="horizontalCenter">
+    <a *ngIf="allAnswered" mat-raised-button color="primary" (click)="createQuestions()" class="submitButton">
+      submit
+    </a>
+  </div>
+
   <router-outlet></router-outlet>
 </div>
