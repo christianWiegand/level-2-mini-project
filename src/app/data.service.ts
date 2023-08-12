@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const amount = 5;
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
+  quizResults: Result[] = [];
   private categoryUrl = 'https://opentdb.com/api_category.php'
   private questionBaseUrl = `https://opentdb.com/api.php`
 
@@ -19,6 +19,8 @@ export class DataService {
     return this.http.get<TriviaCategories>(this.categoryUrl);
   }
 
+  amount = 5;
+
   /**
    * Get the questions from the API
    * @param id The category id of the questions to retrieve
@@ -28,7 +30,7 @@ export class DataService {
   getQuestions(id: number, difficulty: string): Observable<Questions> {
 
     let questionUrl = this.questionBaseUrl;
-    questionUrl += `?amount=${amount}`;
+    questionUrl += `?amount=${this.amount}`;
     questionUrl += `&category=${id}`;
     questionUrl += `&difficulty=${difficulty}`;
     questionUrl += `&type=multiple`;

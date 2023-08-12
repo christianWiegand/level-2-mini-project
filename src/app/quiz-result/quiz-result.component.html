@@ -1,0 +1,34 @@
+<div class="paddingBottom">
+  <div class="paddingBottom" *ngFor="let question of dataService.quizResults">
+
+    <div class="questionText">
+      <h2>{{question.question}}</h2>
+    </div>
+
+    <div class="answers">
+
+      <button class="answerButton" *ngFor="let answer of question.allAnswers"
+        [ngClass]="{'rightButton': answer == question.correct_answer,
+                    'wrongButton': question?.selectedButton?.textContent?.trim() != question.correct_answer &&
+                                   question?.selectedButton?.textContent?.trim() == answer}">
+        {{answer}}
+      </button>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="horizontalCenter">
+
+  <p class="resultMessage"
+    [ngClass]="{'red': correctAnswers == 0 || correctAnswers == 1,
+                'yellow': correctAnswers == 2 || correctAnswers == 3,
+                'green': correctAnswers == 4 || correctAnswers == 5}"
+  >
+    You scored {{correctAnswers}} out of {{dataService.amount}}
+  </p>
+  <a mat-raised-button color="primary" [routerLink] = "['/quiz']" class="submitButton">
+    Create a new quiz
+  </a>
+</div>

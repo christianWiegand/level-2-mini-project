@@ -7,11 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material-module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { QuizComponent } from './quiz/quiz.component';
+import { QuizResultComponent } from './quiz-result/quiz-result.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [		
+    AppComponent,
+      QuizComponent,
+      QuizResultComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
