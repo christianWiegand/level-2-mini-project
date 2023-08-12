@@ -1,3 +1,31 @@
-<div class="mainHeading"><h1>Quiz Maker</h1></div>
+<div class="outerDIV">
+  <div class="mainHeading"><h1>Quiz Maker</h1></div>
+  <div>
 
-<router-outlet></router-outlet>
+    <mat-form-field>
+      <mat-label>Select a category</mat-label>
+      <mat-select>
+        <mat-option value="apple">
+          apple
+        </mat-option>
+        <mat-option value="banana">
+          banana
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select difficulty</mat-label>
+      <mat-select>
+        <mat-option value="apple">
+          apple
+        </mat-option>
+        <mat-option value="banana">
+          banana
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+  <router-outlet></router-outlet>
+</div>

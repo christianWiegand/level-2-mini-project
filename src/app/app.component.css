@@ -3,3 +3,8 @@
   display: flex;
   justify-content: center;
 }
+
+.outerDIV{
+
+  padding: 10px;
+}
