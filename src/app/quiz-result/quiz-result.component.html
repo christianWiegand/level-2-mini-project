@@ -2,7 +2,7 @@
   <div class="paddingBottom" *ngFor="let question of dataService.quizResults">
 
     <div class="questionText">
-      <h2>{{question.question}}</h2>
+      <h2 [innerHTML]="question.question"></h2>
     </div>
 
     <div class="answers">
@@ -10,8 +10,8 @@
       <button class="answerButton" *ngFor="let answer of question.allAnswers"
         [ngClass]="{'rightButton': answer == question.correct_answer,
                     'wrongButton': question?.selectedButton?.textContent?.trim() != question.correct_answer &&
-                                   question?.selectedButton?.textContent?.trim() == answer}">
-        {{answer}}
+                                   question?.selectedButton?.textContent?.trim() == answer}"
+        [innerHTML]="answer">
       </button>
 
     </div>

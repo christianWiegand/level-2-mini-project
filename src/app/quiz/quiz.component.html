@@ -34,14 +34,14 @@
   <div class="paddingBottom" *ngFor="let question of questions">
 
     <div class="questionText">
-      <h2>{{question.question}}</h2>
+      <h2 [innerHTML]="question.question"></h2>
     </div>
 
     <div class="answers">
 
       <button class="answerButton" *ngFor="let answer of question.allAnswers"
-        #answerButton (click)="selectAnswer(question, answerButton, answer)">
-        {{answer}}
+        #answerButton (click)="selectAnswer(question, answerButton, answer)"
+        [innerHTML]="answer">
       </button>
 
     </div>
