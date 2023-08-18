@@ -1,17 +1,17 @@
 <div class="selectionRow">
 
-  <mat-form-field id="categorySelect">
+  <mat-form-field>
     <mat-label>Select a category</mat-label>
-    <mat-select [(ngModel)]="selectedCategoryId">
+    <mat-select [(ngModel)]="selectedCategoryId" id="categorySelect">
       <mat-option *ngFor="let category of categories" [value]="category.id">
         {{category.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field id="difficultySelect">
+  <mat-form-field>
     <mat-label>Select difficulty</mat-label>
-    <mat-select [(ngModel)]="selectedDifficulty">
+    <mat-select [(ngModel)]="selectedDifficulty" id="difficultySelect">
       <mat-option value="easy">
         Easy
       </mat-option>

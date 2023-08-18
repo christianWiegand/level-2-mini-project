@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { DataService, Result, TriviaCategory } from '../data.service';
+import { DataService } from '../data.service';
+import { TriviaCategory } from '../model/TriviaCategory';
+import { Result } from '../model/Result';
 
 @Component({
   selector: 'app-quiz',

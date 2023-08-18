@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Questions } from './model/Questions';
+import { TriviaCategories } from './model/TriviaCategories';
+import { Result } from './model/Result';
 
 
 @Injectable({
@@ -37,33 +40,4 @@ export class DataService {
 
     return this.http.get<Questions>(questionUrl);
   }
-}
-
-export interface TriviaCategories {
-
-	trivia_categories: TriviaCategory[];
-}
-
-export interface TriviaCategory {
-
-	id: number;
-	name: string;
-}
-
-export interface Result {
-
-	category: string;
-	type: string;
-	difficulty: string;
-	question: string;
-	correct_answer: string;
-	incorrect_answers: string[];
-  allAnswers: string[];
-  selectedButton: HTMLButtonElement | undefined;
-}
-
-export interface Questions {
-
-	response_code: number;
-	results: Result[];
 }

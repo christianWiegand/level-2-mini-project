@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService, Result, TriviaCategories, TriviaCategory } from './data.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
